@@ -1,0 +1,68 @@
+﻿<Window x:Class="CondenserClient.InsertData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CondenserClient"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="InsertData" Height="500" Width="800">
+    <Grid>
+        <Rectangle Height="53" Stroke="Black" VerticalAlignment="Top" Fill="#FFD1D1D1"/>
+
+        <Label Content="Ввод показателей работы технологического оборудования" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Объект" HorizontalAlignment="Left" Margin="281,54,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbObj" Margin="341,58,353,0" VerticalAlignment="Top" SelectionChanged="cbObj_SelectionChanged">
+            <ComboBoxItem x:Name="TG3">ТГ-3</ComboBoxItem>
+            <ComboBoxItem x:Name="TG4">ТГ-4</ComboBoxItem>
+            <ComboBoxItem x:Name="TG5">ТГ-5</ComboBoxItem>
+            <ComboBoxItem x:Name="TG6">ТГ-6</ComboBoxItem>
+        </ComboBox>
+        <Label  x:Name="lbMessage" HorizontalAlignment="Left" Margin="476,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.421,0.079" Width="132" FontSize="10" Height="43"/>
+        <Label Content="Дата" HorizontalAlignment="Left" Margin="288,93,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.132,0.213"/>
+        <DatePicker x:Name="dpDate" Margin="0,90,341,0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="118"></DatePicker>
+        <Label Content="Электрическая &#xD;&#xA;мощность" HorizontalAlignment="Left" Margin="20,146,0,0" VerticalAlignment="Top" Width="98" Height="44"/>
+        <TextBox x:Name="tbNk" Text="" Margin="194,159,486,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="tbNk_TextChanged"/>
+        <Label Content="Давление острого&#xD;&#xA;пара перед турбиной" HorizontalAlignment="Left" Margin="20,187,0,0" VerticalAlignment="Top" Width="132" Height="44"/>
+        <TextBox x:Name="tbp0" HorizontalAlignment="Left" Margin="192,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbp0_TextChanged"/>
+        <Label Content="МВт" HorizontalAlignment="Left" Margin="320,155,0,0" VerticalAlignment="Top"/>
+        <Label Content="кгс/см2" HorizontalAlignment="Left" Margin="320,196,0,0" VerticalAlignment="Top"/>
+        <Label Content="Температура острого&#xD;&#xA;пара перед турбиной" HorizontalAlignment="Left" Margin="20,226,0,0" VerticalAlignment="Top" Width="130" Height="44"/>
+        <TextBox x:Name="tbt0" HorizontalAlignment="Left" Margin="192,239,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbt0_TextChanged"/>
+        <Label Content="Давление в&#xA;даэраторе (абс.)" HorizontalAlignment="Left" Margin="20,266,0,0" VerticalAlignment="Top" Width="132" Height="44"/>
+        <TextBox x:Name="tbdaer" HorizontalAlignment="Left" Margin="192,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbdaer_TextChanged"/>
+        <Label Content="°C" HorizontalAlignment="Left" Margin="320,235,0,0" VerticalAlignment="Top"/>
+        <Label Content="кгс/см2" HorizontalAlignment="Left" Margin="320,270,0,0" VerticalAlignment="Top"/>
+        <Label Content="Температура питательной&#xA;воды после ПВД-7" HorizontalAlignment="Left" Margin="20,308,0,0" VerticalAlignment="Top" Width="156" Height="44"/>
+        <TextBox x:Name="tbpvd7" HorizontalAlignment="Left" Margin="192,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbpvd7_TextChanged"/>
+        <Label Content="°C" HorizontalAlignment="Left" Margin="320,316,0,0" VerticalAlignment="Top"/>
+        <Label Content="Температура питательной&#xA;воды после ПВД-6" HorizontalAlignment="Left" Margin="20,348,0,0" VerticalAlignment="Top" Width="156" Height="44"/>
+        <TextBox x:Name="tbpvd6" HorizontalAlignment="Left" Margin="192,358,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbpvd6_TextChanged"/>
+        <Label Content="°C" HorizontalAlignment="Left" Margin="320,354,0,0" VerticalAlignment="Top"/>
+        <Label Content="Температура питательной&#xA;воды после ПВД-5" HorizontalAlignment="Left" Margin="20,388,0,0" VerticalAlignment="Top" Width="156" Height="44"/>
+        <TextBox x:Name="tbpvd5" HorizontalAlignment="Left" Margin="192,398,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbpvd5_TextChanged"/>
+        <Label Content="°C" HorizontalAlignment="Left" Margin="322,394,0,0" VerticalAlignment="Top"/>
+        <Label Content="Температура питательной&#xA;воды после ПНД-4" HorizontalAlignment="Left" Margin="440,147,0,0" VerticalAlignment="Top" Width="156" Height="44"/>
+        <TextBox x:Name="tbpnd4" HorizontalAlignment="Left" Margin="612,159,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbpnd4_Копировать_TextChanged"/>
+        <Label Content="°C" HorizontalAlignment="Left" Margin="742,156,0,0" VerticalAlignment="Top"/>
+        <Label Content="Температура питательной&#xA;воды после ПНД-3" HorizontalAlignment="Left" Margin="440,187,0,0" VerticalAlignment="Top" Width="156" Height="44"/>
+        <TextBox x:Name="tbpnd3" HorizontalAlignment="Left" Margin="612,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbpnd3_TextChanged"/>
+        <Label Content="°C" HorizontalAlignment="Left" Margin="742,196,0,0" VerticalAlignment="Top"/>
+        <Label Content="Температура питательной&#xA;воды после ПНД-2" HorizontalAlignment="Left" Margin="440,228,0,0" VerticalAlignment="Top" Width="156" Height="42"/>
+        <Label Content="Температура питательной&#xA;воды после ПНД-1" HorizontalAlignment="Left" Margin="440,264,0,0" VerticalAlignment="Top" Width="156" Height="44"/>
+        <TextBox x:Name="tbpnd1" HorizontalAlignment="Left" Margin="612,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbpnd1_TextChanged"/>
+        <Label Content="°C" HorizontalAlignment="Left" Margin="742,274,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbpnd2" HorizontalAlignment="Left" Margin="612,239,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbpnd2_TextChanged"/>
+        <Label Content="°C" HorizontalAlignment="Left" Margin="742,235,0,0" VerticalAlignment="Top"/>
+        <Label Content="Давление в конденсаторе&#xA;(абс.)" HorizontalAlignment="Left" Margin="440,306,0,0" VerticalAlignment="Top" Width="156" Height="44"/>
+        <TextBox x:Name="tbP" HorizontalAlignment="Left" Margin="612,318,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbP_TextChanged"/>
+        <Label Content="кгс/см2" HorizontalAlignment="Left" Margin="742,314,0,0" VerticalAlignment="Top"/>
+        <Label Content="Температура охл. воды&#xA;на входе в конденсатор" HorizontalAlignment="Left" Margin="440,346,0,0" VerticalAlignment="Top" Width="156" Height="44"/>
+        <TextBox x:Name="tbt20" HorizontalAlignment="Left" Margin="612,358,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbt20_TextChanged"/>
+        <Label Content="°C" HorizontalAlignment="Left" Margin="742,354,0,0" VerticalAlignment="Top"/>
+        <Label Content="Температура охл. воды&#xA;на выходе из конденсатора" HorizontalAlignment="Left" Margin="442,386,0,0" VerticalAlignment="Top" Width="166" Height="44"/>
+        <TextBox x:Name="tbt2" HorizontalAlignment="Left" Margin="612,398,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbt2_TextChanged"/>
+        <Label Content="°C" HorizontalAlignment="Left" Margin="742,394,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Save" Content="Сохранить" HorizontalAlignment="Right" Width="115" Height="46" VerticalAlignment="Bottom" Click="Button_Click"/>
+    </Grid>
+</Window>

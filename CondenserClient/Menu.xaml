@@ -1,0 +1,16 @@
+﻿<Window x:Class="CondenserClient.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CondenserClient"
+        mc:Ignorable="d"
+        Title="Menu" Height="450" Width="400">
+    <Grid>
+        <Rectangle Height="53" Stroke="Black" VerticalAlignment="Top" Fill="#FFD1D1D1"/>
+
+        <Label Content="Система диагностики степени загрязнения&#xD;&#xA;                 пучков конденсатора" Margin="5,-5,5,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Button x:Name="lookData" Content="Просмотр данных" HorizontalAlignment="Center" Margin="0,148,0,0" VerticalAlignment="Top" Height="36" Width="220" FontSize="16" Click="lookData_Click"/>
+        <Button x:Name="InsertData" Content="Ввод показателей работы" HorizontalAlignment="Center" VerticalAlignment="Top" Height="37" Width="220" FontSize="16" Margin="0,217,0,0" Click="InsertData_Click"/>
+    </Grid>
+</Window>

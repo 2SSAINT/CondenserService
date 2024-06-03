@@ -1,0 +1,72 @@
+﻿<Window x:Class="CondenserClient.MainWindow"
+        xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CondenserClient"
+        mc:Ignorable="d"
+        Title="Оценка степени загрязнения" Height="700" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Rectangle Height="51" Stroke="Black" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FFD1D1D1" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <ScottPlot:WpfPlot x:Name="IndexFunction" Height="200" VerticalAlignment="Top" Margin="0,51,0,0" />
+        <Rectangle Height="40" Stroke="Black" VerticalAlignment="Top" Fill="#FFD1D1D1" Margin="0,372,0,0" MinHeight="20" MaxWidth="1920" MaxHeight="1080" MinWidth="375"/>
+        <Label x:Name="d" Content="Журнал сообщений" FontSize="15" FontStyle="Normal" FontWeight="ExtraBold"  HorizontalAlignment="Left" Margin="10,373,0,0" VerticalAlignment="Top"/>
+
+        <Button x:Name="TG3" Content="ТГ-3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Height="51" Click="TG3_Click"/>
+        <Button x:Name="TG4" Content="ТГ-4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Height="51" Margin="160,0,0,0" Click="TG4_Click" />
+        <Button x:Name="TG5" Content="ТГ-5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Height="51" Margin="320,0,0,0" Click="TG5_Click"/>
+        <Button x:Name="TG6" Content="ТГ-6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Height="51" Margin="480,0,0,0" Click="TG6_Click"/>
+        <DataGrid x:Name="Messages" Margin="0,412,0,-4" AutoGenerateColumns="False">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=clDeg1}" Value="1">
+                            <Setter Property="Background" Value="#D5E8D4"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=clDeg1}" Value="2">
+                            <Setter Property="Background" Value="#FFF2CC"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=clDeg1}" Value="3">
+                            <Setter Property="Background" Value="#F8CECC"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Header="Дата"  Binding="{Binding Path=clMyDate, StringFormat='dd.MM.yyyy'}" Width="70"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Объект" Binding="{Binding Path=clObj}" Width="140"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Подсистема" Binding="{Binding Path=clSubSistem}" Width="123"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Описание" Binding="{Binding Path=clDescription}" Width="193"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Рекоммендация" Binding="{Binding Path=clRecommendation}" Width="163"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Степень загрязнения" Binding="{Binding Path=clInd1}" Width="110"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ScrollViewer RenderTransformOrigin="0.477,0.481" Margin="0,256,0,316">
+            <StackPanel x:Name="Graphics">
+                <RadioButton x:Name="index" IsChecked="True" Checked="index_Checked">Степень загрязненности пучков конденсатора</RadioButton>
+                <RadioButton x:Name="Nk" Width="730" Checked="Nk_Checked">Электрическая мощность турбогенератора</RadioButton>
+                <RadioButton x:Name="k12" Width="730" Checked="k12_Checked">Коэффициент теплопередачи поверхностей нагрева конденсатора</RadioButton>
+                <RadioButton x:Name="P" Width="730" Checked="P_Checked">Давление в конденсаторе</RadioButton>
+                <RadioButton x:Name="G1" Width="730" Checked="G1_Checked">Расход отработавшего пара в конденсатор</RadioButton>
+                <RadioButton x:Name="G2" Width="730" Checked="G2_Checked">Расход охлаждающей воды через конденсатор</RadioButton>
+                <RadioButton x:Name="t20" Width="730" Checked="t20_Checked">Температура охлаждающей воды на входе в конденсатор</RadioButton>
+                <RadioButton x:Name="t2" Width="730" Checked="t2_Checked">Температура охлаждающей воды на выходе из конденсатора</RadioButton>
+                <RadioButton x:Name="p0" Width="730" Checked="p0_Checked">Давление острого пара перед турбиной</RadioButton>
+                <RadioButton x:Name="t0" Width="730" Checked="t0_Checked">Температура острого пара перед турбиной</RadioButton>
+                <RadioButton x:Name="p_daer" Width="730" Checked="p_daer_Checked">Давление в даераторе</RadioButton>
+                <RadioButton x:Name="t_pvd7" Width="730" Checked="t_pvd7_Checked">Температура питательной воды после ПВД-7</RadioButton>
+                <RadioButton x:Name="t_pvd6" Width="730" Checked="t_pvd6_Checked">Температура питательной воды после ПВД-6</RadioButton>
+                <RadioButton x:Name="t_pvd5" Width="730" Checked="t_pvd5_Checked">Температура питательной воды после ПВД-5</RadioButton>
+                <RadioButton x:Name="t_pnd4" Width="730" Checked="t_pnd4_Checked">Температура питательной воды после ПНД-4</RadioButton>
+                <RadioButton x:Name="t_pnd3" Width="730" Checked="t_pnd3_Checked">Температура питательной воды после ПНД-3</RadioButton>
+                <RadioButton x:Name="t_pnd2" Width="730" Checked="t_pnd2_Checked">Температура питательной воды после ПНД-2</RadioButton>
+                <RadioButton x:Name="t_pnd1" Width="730" Checked="t_pnd1_Checked">Температура питательной воды после ПНД-1</RadioButton>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
