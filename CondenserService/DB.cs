@@ -41,7 +41,7 @@ namespace CondenserService
             }
         }
 
-        public static string[] GetDataForService(int obj) // для метода Calculate_k
+        public static string[] GetDataForService(int obj) // получение данных для метода Calculate_k, который рассчитывает степень загрязнения конденсатора
         {
             string[] result = new string[15];
             Console.WriteLine("Я в базе");
@@ -85,7 +85,7 @@ namespace CondenserService
             return result;
         }
 
-        public static void InsertCalculations(int shift, double G1, double G2, double ind1, int deg1, double k12)
+        public static void InsertCalculations(int shift, double G1, double G2, double ind1, int deg1, double k12) //запись в БД результатов рассчетов матмоделей
         {
             Console.WriteLine("В БАЗУ");
             using (MySqlConnection connection = new MySqlConnection(DBConnetct))
@@ -110,7 +110,7 @@ namespace CondenserService
             myconnect.Close();
         }
 
-        public static string[][] QuerryForClient(int obj, int days)
+        public static string[][] QuerryForClient(int obj, int days) // получение данных для клиента о показателях работы оборудования и степени загрязнения конденсатора
         {
             string query = "SELECT shift_date, calculate_index, calculate_deg, calculate_G1, calculate_G2, calculate_k12, measure_Nk, measure_t20, measure_t2, measure_P, measure_p0, measure_t0, measure_p_daer, measure_pvd7_out, measure_pvd6_out, measure_pvd5_out, measure_pnd4_out, measure_pnd3_out, measure_pnd2_out, measure_pnd1_out FROM" +
                 " shift, calculate, measure WHERE shift_object = @obj AND measure_shift = calculate_shift AND shift_id = calculate_shift ORDER BY shift_id LIMIT @days;"; //устанавливается количество
@@ -181,7 +181,7 @@ namespace CondenserService
             return Arr;
         }
 
-        public static void insertMeasuresIntoDB(string[] intoDB)
+        public static void insertMeasuresIntoDB(string[] intoDB) // запись в БД показателей работы турбины, введенных пользователем
         {
             int obj = int.Parse(intoDB[0]);
             DateTime shift = Convert.ToDateTime(intoDB[1]);
