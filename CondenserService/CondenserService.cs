@@ -14,7 +14,7 @@ namespace CondenserService
     // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени класса "CondenserService" в коде и файле конфигурации.
     public class CondenserService : ICondenserService
     {
-        public void Calculate_k(int obj)
+        public void Calculate_k(int obj) // рассчеты матмоделей
         {
             DB.ConnectionDB();
             Console.WriteLine("калькуляция");
@@ -95,7 +95,7 @@ namespace CondenserService
             return dataFromDB;
         }
 
-        public void InsertMesIntoDB(string[] intoDB)
+        public void InsertMesIntoDB(string[] intoDB) // Запись показателей работы в БД
         {
             DB.ConnectionDB();
             DB.insertMeasuresIntoDB(intoDB); // запись показателей работы
